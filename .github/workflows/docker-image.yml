@@ -1,18 +1,18 @@
-name: Docker Image CI
-
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
+name: Publish Docker
+on: [push]
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build ubuntu18.04 --tag cmake:$(date +%s)
+    - uses: actions/checkout@test
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      env:
+        VERSION: 3.17.3
+      with:
+        name: anvari/cmake
+        workdir: alpine3.11
+        buildargs: VERSION
+        tags: 3.17.3-alpine, 3.17.3-alpine3.11
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
