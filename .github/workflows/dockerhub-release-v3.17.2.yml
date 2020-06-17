@@ -24,7 +24,7 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
-  alpine3.11:
+  alpine:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@master

@@ -23,7 +23,8 @@ jobs:
           tags: latest, bionic, 3, 3-bionic, 3.17, 3.17-bionic, 3.17.3, 3.17.3-bionic
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-  alpine3.11:
+
+  alpine:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@master
