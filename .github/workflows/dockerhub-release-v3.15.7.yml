@@ -1,4 +1,4 @@
-name: dockerhub-release-v3.17.2
+name: dockerhub-release-v3.15.7
 on:
   # Trigger the workflow on push or pull request,
   # but only for the master branch
@@ -15,12 +15,12 @@ jobs:
       - uses: actions/checkout@master
       - uses: elgohr/Publish-Docker-Github-Action@master
         env:
-          VERSION: 3.17.2
+          VERSION: 3.15.7
         with:
           name: anvari/cmake
           workdir: ubuntu18.04
           buildargs: VERSION
-          tags: 3.17.2, 3.17.2-bionic
+          tags: 3.15, 3.15-bionic, 3.15.7, 3.15.7-bionic
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
@@ -30,11 +30,11 @@ jobs:
       - uses: actions/checkout@master
       - uses: elgohr/Publish-Docker-Github-Action@master
         env:
-          VERSION: 3.17.2
+          VERSION: 3.15.7
         with:
           name: anvari/cmake
           workdir: alpine3.11
           buildargs: VERSION
-          tags: 3.17.2-alpine, 3.17.2-alpine3.11
+          tags: 3.15-alpine, 3.15.7-alpine, 3.15.7-alpine3.11
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
